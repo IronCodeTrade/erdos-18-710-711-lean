@@ -1,0 +1,2 @@
+'R6E710.f_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R6E710.f_50' depends on axioms: [propext, Classical.choice, Quot.sound]

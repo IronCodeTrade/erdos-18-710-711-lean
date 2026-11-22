@@ -1,0 +1,25 @@
+name = "erdos18710711"
+defaultTargets = ["R6E18Core", "R6E710Core", "R6E711Core"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.36.0"
+
+[[lean_lib]]
+name = "R6E18Core"
+
+[[lean_lib]]
+name = "R6E710Core"
+
+[[lean_lib]]
+name = "R6E711Core"
+
+[[lean_lib]]
+name = "E18"
+
+[[lean_lib]]
+name = "E710"
+
+[[lean_lib]]
+name = "E711"

@@ -1,0 +1,1 @@
+'R6E711.max7' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,27 @@
+Lean 4.36.0 (commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9), Mathlib v4.36.0.
+Rechecked with `lake env lean` on 22 November 2026 (Europe/Warsaw), one file
+at a time, at low CPU priority, while an unrelated long-running process
+(#128, n=22) was left untouched.
+
+All of the following returned exit code 0, with axioms
+propext, Classical.choice, Quot.sound only:
+
+  R6E18Core.lean          46 s
+  R6E710Core.lean          5 s
+  R6E711Core.lean          6 s
+  E18/H3_8.lean            5 s
+  E18/H9_10.lean          15 s
+  E711/F17.lean            5 s
+  E711/M3.lean, M4, M5, M6  4–5 s each
+  E711/M7.lean             8 s
+  E710/F1_50.lean          8 s
+
+Not rechecked at publication time, in order to keep memory headroom:
+
+  E710/F51_200.lean
+  E711/M8.lean, M9.lean, M10.lean
+  E18/H11_native.lean   (previously checked with native_decide)
+  E18/H12_native.lean   (not successfully checked; insufficient memory)
+
+The heavier instance files had been checked earlier the same day in the
+same toolchain; their sources are unchanged.

@@ -1,0 +1,1 @@
+n=12 m=479001600 divisors=792 h(m)=8 (first k attaining: 475785157) unreachable=0

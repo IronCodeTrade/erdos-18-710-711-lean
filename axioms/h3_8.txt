@@ -1,0 +1,6 @@
+'R6E18.h3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R6E18.h4_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R6E18.h5_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R6E18.h6_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R6E18.h7_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R6E18.h8_eq' depends on axioms: [propext, Classical.choice, Quot.sound]

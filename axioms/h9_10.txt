@@ -1,0 +1,2 @@
+'R6E18.h9_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'R6E18.h10_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
