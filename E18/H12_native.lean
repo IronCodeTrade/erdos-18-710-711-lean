@@ -1,8 +1,8 @@
 /-
   CAUTION: this file uses `native_decide` for the final bitset evaluation of h(12!).
-  It was NOT successfully checked on the original machine (the run was stopped for
-  lack of memory). The file is included so that the claim can be re-checked on a
-  machine with enough RAM. Independent C and Python programs in `computations/e18/`
+  It was checked successfully on 23 Nov 2026 with Lean 4.36.0 / Mathlib v4.36.0
+  (axioms recorded in `axioms/h12_native.txt`); it needs well over 10 GB of RAM.
+  Independent C and Python programs in `computations/e18/`
   both give h(12!)=8 with first witness k=475785157. See the README.
 -/
 

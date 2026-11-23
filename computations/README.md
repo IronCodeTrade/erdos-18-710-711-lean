@@ -28,8 +28,8 @@ certify (or, for a few larger cases, only the programs were run).
 
 - `f711.c` — exhaustive search of `max_m f(n,m)` for `n = 1..N`, using
   periodicity modulo `lcm(1..n)`. Recorded output: `max711_18.txt`.
-- `f711b.c` — the same program for a range `N0..N`. Recorded output for
-  `n = 19`: `max711_19.txt`.
+- `f711b.c` — the same program for a range `N0..N`. Recorded outputs for
+  `n = 19..22`: `max711_19.txt` … `max711_22.txt`.
 - `cert711.py` — matching and Hall certificates; `up_3.json` … `up_10.json`
   were used to generate `E711/M3.lean` … `M10.lean`. `hall17.json` is the
   Hall certificate for `f(17, 485749) = 34`.

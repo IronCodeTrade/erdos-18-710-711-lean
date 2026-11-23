@@ -54,11 +54,11 @@ correctness of a bitset dynamic program once and for all
 | 9 | 362880 | 7 | 362783 | kernel (`E18/H9_10.lean`, `h9_eq`) |
 | 10 | 3628800 | 7 | 2979161 | kernel (`h10_eq`) |
 | 11 | 39916800 | 7 | 29749079 | **`native_decide`** (`E18/H11_native.lean`, `h11_eq`) |
-| 12 | 479001600 | 8 | 475785157 | exhaustive computation only (C and Python agree); Lean file `E18/H12_native.lean` is included but was **not** successfully checked (insufficient memory) |
+| 12 | 479001600 | 8 | 475785157 | **`native_decide`** (`E18/H12_native.lean`, `h12_eq`; checked 23 Nov 2026, axioms in `axioms/h12_native.txt`); C and Python agree |
 
 To our knowledge the public discussion went up to `n = 11`. The value
-`h(12!) = 8` is therefore offered as new computational data, not as a
-kernel-checked theorem.
+`h(12!) = 8` is offered as new data. It is checked in Lean with
+`native_decide` (which trusts the compiler), not by the kernel alone.
 
 ### Problem #710 — `f(n)`
 
@@ -117,17 +117,20 @@ The pattern `max_m f(n,m) = 2n−1` continues computationally through
   `485758, 485760, 485771, 485772, 485775`.
 
 Exhaustive C search (`computations/e711/f711.c`, `f711b.c`) gives
-`max_m f(n,m)` for `n = 1..19`:
+`max_m f(n,m)` for `n = 1..22`:
 
 ```
-n:     1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
-max:   2  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 34 35 40
+n:     1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
+max:   2  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 34 35 40 43 43 49
 ```
 
-The entries for `n = 11..16`, `n = 18` and `n = 19` are **exhaustive
+The entries for `n = 11..16` and `n = 18..22` are **exhaustive
 computation only** (not Lean). This sequence does not appear to be in the
-OEIS. Recorded outputs: `max711_18.txt`, `max711_19.txt`. For `n = 19`
-the maximum 40 is attained at `m = 1407302`.
+OEIS. Recorded outputs: `max711_18.txt` … `max711_22.txt`. The maxima are
+attained at `m = 1407302` (`n = 19`), `m = 790370` (`n = 20` and `21`) and
+`m = 503104` (`n = 22`); for `n = 20, 21, 22` the value of `f(n,m)` at these
+`m` was rechecked independently in Python (networkx bipartite matching).
+For comparison, `f(n,n) = 26, 29, 30, 31` for `n = 19, 20, 21, 22`.
 
 ## Build
 
@@ -151,10 +154,9 @@ lake env lean E711/M7.lean    # M8, M9, M10 are larger still
 ```
 
 `E18/H11_native.lean` uses `native_decide` and also needs several GB of
-RAM. `E18/H12_native.lean` uses `native_decide` as well; it was **not**
-completed on the original machine and should be tried only with a
-comfortable margin of free memory (the earlier attempt was stopped at a
-limit of about 10.5 GB).
+RAM. `E18/H12_native.lean` uses `native_decide` as well; it completed on
+23 Nov 2026 (about 30 minutes) and needs a comfortable margin of free
+memory (an earlier attempt was stopped at a limit of about 10.5 GB).
 
 Recorded `#print axioms` traces are in `axioms/`.
 
@@ -180,4 +182,7 @@ computational values.
 - `#710` asks for the asymptotic size of `f(n)`; the values up to 200 do
   not settle it.
 - `#711` asks for the behaviour of `f(n,m)` in general; the break of the
-  pattern `2n−1` at `n = 17` is a data point, not a solution.
+  pattern `2n−1` at `n = 17` and the values up to `n = 22` are data, not a solution.
+
+See also https://github.com/IronCodeTrade/erdos-128-n23 (Erdős #128, no
+counterexample for `n ≤ 23`).
